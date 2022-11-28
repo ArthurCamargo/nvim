@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-calc"] = {
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp-calc",
+    url = "https://github.com/hrsh7th/cmp-calc"
+  },
   ["cmp-cmdline"] = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
@@ -114,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["cmp-spell"] = {
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp-spell",
+    url = "https://github.com/f3fora/cmp-spell"
+  },
   cmp_luasnip = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
@@ -123,6 +133,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/colorschemes",
     url = "https://github.com/lunarvim/colorschemes"
+  },
+  everforest = {
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
   },
   ["feline.nvim"] = {
     loaded = true,
@@ -179,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -214,6 +234,12 @@ _G.packer_plugins = {
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tmux.nvim"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ttmux\frequire\0" },
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/tmux.nvim",
+    url = "https://github.com/aserowy/tmux.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -229,6 +255,12 @@ _G.packer_plugins = {
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   },
+  ["which-key.nvim"] = {
+    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
+    loaded = true,
+    path = "/home/guest/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
+  },
   ["zk-nvim"] = {
     loaded = true,
     path = "/home/guest/.local/share/nvim/site/pack/packer/start/zk-nvim",
@@ -237,6 +269,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: tmux.nvim
+time([[Config for tmux.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\ttmux\frequire\0", "config", "tmux.nvim")
+time([[Config for tmux.nvim]], false)
+-- Config for: which-key.nvim
+time([[Config for which-key.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
+time([[Config for which-key.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

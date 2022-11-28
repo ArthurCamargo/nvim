@@ -18,6 +18,30 @@ return require('packer').startup(function()
     -- Colorschemes :)
     use 'folke/tokyonight.nvim'
 
+    -- Integration with tmux
+    use({
+        "aserowy/tmux.nvim",
+        config = function() require("tmux").setup() end
+    })
+
+
+    -- Which key
+
+    -- Lua
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+
+
+
+
     -- TJ created lodash of neovim
     use("nvim-lua/popup.nvim")   -- Userful function for nvim in lua
     use("nvim-lua/plenary.nvim") -- Useful functions for nvim in lua
@@ -25,6 +49,7 @@ return require('packer').startup(function()
     -- Colorschemes
     use("lunarvim/colorschemes")
     use("NLKNguyen/papercolor-theme")
+    use("sainnhe/everforest")
 
     -- Completion
     use ("hrsh7th/nvim-cmp") -- The completion plugin
@@ -34,6 +59,8 @@ return require('packer').startup(function()
     use ("hrsh7th/cmp-nvim-lsp") -- cmdline completions
     use ("hrsh7th/cmp-nvim-lua")-- cmdline completions
     use ("saadparwaiz1/cmp_luasnip") -- snippet completions
+    use ("hrsh7th/cmp-calc") -- Calculator
+    use ("f3fora/cmp-spell") -- Spell
 
     -- Snippets
     use "L3MON4D3/LuaSnip" --snippet engine
@@ -51,6 +78,7 @@ return require('packer').startup(function()
     use{'nvim-treesitter/nvim-treesitter',
         run = ":TSUpdate",
     }
+    use{'p00f/nvim-ts-rainbow'}
 
     -- Autopairs
     use("windwp/nvim-autopairs")

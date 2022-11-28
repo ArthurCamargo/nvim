@@ -1,6 +1,6 @@
 
 -- Use '*' as clipboard register
-vim.opt.clipboard = 'unnamed'
+vim.opt.clipboard = 'unnamedplus'
 
 -- More space to the cmd
 vim.opt.cmdheight = 2
