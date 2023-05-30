@@ -50,6 +50,7 @@ return require('packer').startup(function()
     use("lunarvim/colorschemes")
     use("NLKNguyen/papercolor-theme")
     use("sainnhe/everforest")
+    use { "catppuccin/nvim", as = "catppuccin" }
 
     -- Completion
     use ("hrsh7th/nvim-cmp") -- The completion plugin
@@ -83,7 +84,8 @@ return require('packer').startup(function()
     -- Autopairs
     use("windwp/nvim-autopairs")
 
-    -- Git signs 
+    -- Git Stuff
+    use ("tpope/vim-fugitive")
     use ("lewis6991/gitsigns.nvim") 
 
     -- Comments
@@ -94,8 +96,8 @@ return require('packer').startup(function()
     use ("kyazdani42/nvim-tree.lua")
     use("kyazdani42/nvim-web-devicons")
 
-    -- Zettelkasten
-    use("mickael-menu/zk-nvim")
+    -- Latex
+    use ("lervag/vimtex")
 
     use('tpope/vim-surround')
     use('ryanoasis/vim-devicons')
