@@ -3,16 +3,19 @@ if not cmp_status_ok then
   return
 end
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
+local snip_status_ok, ulti = pcall(require, "cmp_nvim_ultisnips.mappings")
 if not snip_status_ok then
   return
 end
-require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
+
+local async = require("plenary.async")
+-- local notify = require("notify").async
+
 
 --   some other good icons
 local kind_icons = {
@@ -47,7 +50,7 @@ local kind_icons = {
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body) -- For `luasnip` users.
+        vim.fn['#UltiSnips#Anon'](args.body)
     end,
   },
   mapping = {
@@ -65,16 +68,9 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = false},
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      elseif check_backspace() then
-        fallback()
       else
         fallback()
       end
@@ -83,17 +79,12 @@ cmp.setup {
       "s",
     }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
+        ulti.jump_backwards(fallback)
     end, {
       "i",
       "s",
     }),
+    ["<CR>"] = cmp.mapping.confirm { select = false},
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -104,7 +95,7 @@ cmp.setup {
       vim_item.menu = ({
         nvim_lua = "[NVIM_LUA]",
         nvim_lsp = "[LSP]",
-        luasnip = "[Snippet]",
+        ultisnips = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
         calc = "[Calc]",
@@ -117,7 +108,7 @@ cmp.setup {
     { name = "nvim_lua"},
     { name = "spell"},
     { name = "nvim_lsp"},
-    { name = "luasnip" },
+    { name = "ultisnips" },
     { name = "buffer" },
     { name = "path" },
     { name = "calc"}

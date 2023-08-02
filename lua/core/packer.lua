@@ -1,10 +1,8 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
 -- Autocommand to sync packer
 vim.cmd [[
     augroup packer_user_config
-        autocmd!
-        autocmd BufWritePost packer.lua source <afile> | PackerSync
+    autocmd!
+    autocmd BufWritePost packer.lua source <afile> | PackerSync
     augroup end
 ]]
 
@@ -15,32 +13,51 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Colorschemes :)
-    use 'folke/tokyonight.nvim'
+    -- oil
 
-    -- Integration with tmux
-    use({
-        "aserowy/tmux.nvim",
-        config = function() require("tmux").setup() end
-    })
+    use {
+        'stevearc/oil.nvim',
+        config = function() require('oil').setup() end
+    }
+
+    -- LSP
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v2.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},             -- Required
+            {                                      -- Optional
+                'williamboman/mason.nvim',
+                run = function()
+                    pcall(vim.api.nvim_command, 'MasonUpdate')
+                end,
+            },
+            {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},     -- Required
+            {'hrsh7th/cmp-nvim-lsp'}, -- Required
+            {'L3MON4D3/LuaSnip'},     -- Required
+        }
+    }
+
+    -- ultisnips
+    use("quangnguyen30192/cmp-nvim-ultisnips")
+
+    -- Annotation 
+
+    use { "folke/neodev.nvim", opts = {} }
+
+    use {'nvim-tree/nvim-web-devicons'}
 
 
     -- Which key
 
     -- Lua
-    use {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup {
-                -- your configuration comes here
-                -- or leave it empty to use the default settings
-                -- refer to the configuration section below
-            }
-        end
-    }
+    use ("folke/which-key.nvim")
 
-
-
+    use ('ThePrimeagen/harpoon')
 
     -- TJ created lodash of neovim
     use("nvim-lua/popup.nvim")   -- Userful function for nvim in lua
@@ -48,6 +65,8 @@ return require('packer').startup(function()
 
     -- Colorschemes
     use("lunarvim/colorschemes")
+    use 'folke/tokyonight.nvim'
+    use("rebelot/kanagawa.nvim")
     use("NLKNguyen/papercolor-theme")
     use("sainnhe/everforest")
     use { "catppuccin/nvim", as = "catppuccin" }
@@ -59,55 +78,61 @@ return require('packer').startup(function()
     use ("hrsh7th/cmp-cmdline") -- cmdline completions
     use ("hrsh7th/cmp-nvim-lsp") -- cmdline completions
     use ("hrsh7th/cmp-nvim-lua")-- cmdline completions
-    use ("saadparwaiz1/cmp_luasnip") -- snippet completions
+    use ("SirVer/ultisnips")
     use ("hrsh7th/cmp-calc") -- Calculator
     use ("f3fora/cmp-spell") -- Spell
 
-    -- Snippets
-    use "L3MON4D3/LuaSnip" --snippet engine
-    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+    -- Cheat
+    use ('RishabhRD/popfix')
+    use ('RishabhRD/nvim-cheat.sh')
+
 
     -- Lsp
-    use ("neovim/nvim-lspconfig") -- Lsp config main
-    use ("williamboman/nvim-lsp-installer") -- Lsp installer
+
+    use { "folke/lsp-trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+        require("trouble").setup {
+        } end
+    }
 
     -- Telescope
     use("nvim-telescope/telescope.nvim")
+    use("smilovanovic/telescope-search-dir-picker.nvim")
     use("nvim-telescope/telescope-media-files.nvim")
+    use('nvim-telescope/telescope-dap.nvim')
 
     -- TreeSitter
     use{'nvim-treesitter/nvim-treesitter',
-        run = ":TSUpdate",
-    }
-    use{'p00f/nvim-ts-rainbow'}
+    run = ":TSUpdate",
+}
+use{'p00f/nvim-ts-rainbow'}
 
-    -- Autopairs
-    use("windwp/nvim-autopairs")
+-- Autopairs
+use("windwp/nvim-autopairs")
 
-    -- Git Stuff
-    use ("tpope/vim-fugitive")
-    use ("lewis6991/gitsigns.nvim") 
+-- Git Stuff
+use ("tpope/vim-fugitive")
+use ("lewis6991/gitsigns.nvim") 
 
-    -- Comments
-    use ("numToStr/Comment.nvim")
-    use ("JoosepAlviste/nvim-ts-context-commentstring")
+-- Comments
+use ("numToStr/Comment.nvim")
+use ("JoosepAlviste/nvim-ts-context-commentstring")
 
-    -- Nvim-tree
-    use ("kyazdani42/nvim-tree.lua")
-    use("kyazdani42/nvim-web-devicons")
+-- Nvim-tree
+use ("kyazdani42/nvim-tree.lua")
 
-    -- Latex
-    use ("lervag/vimtex")
+-- Latex
+use ("lervag/vimtex")
 
-    use('tpope/vim-surround')
-    use('ryanoasis/vim-devicons')
+use('tpope/vim-surround')
 
-    use("romgrk/barbar.nvim")
-    use("feline-nvim/feline.nvim")
+use('ryanoasis/vim-devicons')
 
-    use({
-        'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    })
+use({
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+})
+use ('romgrk/barbar.nvim')
+
 end)
-

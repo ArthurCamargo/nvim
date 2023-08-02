@@ -1,0 +1,21 @@
+# Comments are possible
+
+snippet cout
+	std::cout << "${1:string}" << ${2:variable} << ${3:std::endl};
+	${0}
+snippet fori
+	for (${1:size_t} ${2:i} = 0; ${2:i} < ${3:number}; ${2:i} ++ ) {
+		${4:$VISUAL}
+	}
+
+	${0}
+
+snippet func
+	${1:type} ${2:name}(${3:params})
+	{
+		${4:$VISUAL}
+	}
+
+	${0}
+
+snippet upcase

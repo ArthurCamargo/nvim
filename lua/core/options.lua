@@ -1,9 +1,11 @@
-
 -- Use '*' as clipboard register
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = ''
 
 -- More space to the cmd
 vim.opt.cmdheight = 2
+
+-- Set current dir as root (autoch)
+vim.opt.autochdir = true
 
 -- Terminal gui colors
 vim.opt.termguicolors = true
@@ -15,11 +17,12 @@ vim.opt.completeopt = {'menuone', 'noselect'}
 vim.opt.showtabline = 2
 
 -- Splits, below and at the right 
-vim.opt.splitbelow = true
-vim.opt.splitright = true 
+vim.opt.splitright = true
 
 -- Mouse support at all modes
 vim.opt.mouse = 'a'
+
+-- Transparency
 
 -- Tabstops options
 vim.opt.tabstop=4
@@ -43,7 +46,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 10
 
 -- Pleas do not wrap
-vim.opt.wrap=false
+vim.opt.wrap=true
 
 -- Smartcase
 vim.opt.smartcase = true
