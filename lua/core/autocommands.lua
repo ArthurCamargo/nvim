@@ -24,6 +24,12 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   command = "map <leader>u vipJvipgq"
 })
 
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    pattern = {"*.snippets"},
+    command = "CmpUltisnipsReloadSnippets"
+})
+
+
 -- vim.api.nvim_create_autocmd({"WinNew"}, {
     --pattern = {"*"},
     --command = "wincmd L"
