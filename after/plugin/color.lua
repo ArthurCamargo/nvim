@@ -1,9 +1,15 @@
 vim.opt.background= "dark"
 
-local color = 'kanagawa'
+local color = 'deus'
 
-vim.api.nvim_set_hl(0, "Normal", { bg = 'none' })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'none' })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.cmd("hi! Normal guibg=NONE ctermbg=NONE")
+    vim.cmd("hi! NonText guibg=NONE ctermbg=NONE")
+  end,
+})
+
 
 local status_ok, _ = pcall(vim.cmd, "colo " .. color)
 if not status_ok then

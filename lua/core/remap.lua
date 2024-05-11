@@ -72,9 +72,12 @@ inoremap("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 nnoremap("<leader>sn","<cmd>set nospell<CR>")
 
 -- Buffer related commands
-nnoremap("<leader>q", "<cmd>bdel<CR>")
-nnoremap("<leader>h", "<cmd>bprev<CR>")
-nnoremap("<leader>l", "<cmd>bnext<CR>")
+nnoremap("<leader>q", "<cmd>BufferClose<CR>")
+nnoremap("<leader>h", "<cmd>BufferPrevious<CR>")
+nnoremap("<leader>l", "<cmd>BufferNext<CR>")
+nnoremap("<leader>bc", "<cmd>BufferCloseAllButCurrent<CR>")
+nnoremap("<leader>bp", "<cmd>BufferPick<CR>")
+
 
 -- Quitting vim
 nnoremap("<leader>qq", "<cmd>q!<CR>")

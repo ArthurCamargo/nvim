@@ -16,8 +16,9 @@ vim.opt.completeopt = {'menuone', 'noselect'}
 -- Always show tabs
 vim.opt.showtabline = 2
 
--- Splits, below and at the right 
+-- Splits, below and at the right
 vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 -- Mouse support at all modes
 vim.opt.mouse = 'a'
