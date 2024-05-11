@@ -11,7 +11,6 @@ nnoremap('<leader>`', "<Cmd>NvimTreeToggle<CR>")
 -- Super save, save as sudo
 nnoremap("<leader>W", ":w !sudo -A tee % > /dev/null<CR>")
 
-nnoremap("-", require("oil").open, { desc = "Open parent directory"})
 
 -- Resize splits 
 nnoremap("<C-Down>", "<Cmd>resize -2<CR>")
@@ -31,7 +30,13 @@ vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
 -- Clipboard +
-nnoremap("<leader>yy", "\"+yy")
+  -- Copying 
+  nnoremap("<leader>yy", "\"+yy")
+  nnoremap("<leader>y", "\"+y")
+  vnoremap("<leader>y", "\"+y")
+  -- Pasting
+  nnoremap("<leader>p", "\"+p")
+
 
 -- Don't overwrite the clipboard while pasting over visualmode
 vnoremap("p",'"_dP')
@@ -62,7 +67,7 @@ nnoremap("<leader>qm", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<CR>"
 nnoremap("<leader>m", "<cmd>:lua require('harpoon.mark').add_file()<CR>")
 
 -- Spelling
-nnoremap("<leader>sp", "<cmd>set spell spelllang=en_us,pt_br<CR>")
+nnoremap("<leader>sp", "<cmd>set spell spelllang=en_us<CR>")
 inoremap("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 nnoremap("<leader>sn","<cmd>set nospell<CR>")
 
@@ -72,8 +77,8 @@ nnoremap("<leader>h", "<cmd>bprev<CR>")
 nnoremap("<leader>l", "<cmd>bnext<CR>")
 
 -- Quitting vim
-nnoremap("<leader>p", "<cmd>q!<CR>")
-nnoremap("<leader>ap", "<cmd>qa!<CR>")
+nnoremap("<leader>qq", "<cmd>q!<CR>")
+nnoremap("<leader>qqa", "<cmd>qa!<CR>")
 
 
 -- Save file
@@ -112,11 +117,20 @@ nnoremap("<leader>ffu", "<cmd>lua require('core.config.telescope').dir_universit
 nnoremap("<leader>to", "<cmd>tabnew<CR>")
 nnoremap("<leader>tn", "<cmd>tabnext<CR>")
 nnoremap("<leader>tp", "<cmd>tabprev<CR>")
+nnoremap("<leader>tq", "<cmd>tabclose<CR>")
+
+-- Tags
+nnoremap("<leader>tt", "<cmd>Tagbar<CR>")
 
 
 -- Git
-
-nnoremap("<leader>ga", "<cmd>Git<CR>")
+nnoremap("<leader>gg", "<cmd>Git<CR>")
+nnoremap("<leader>gh", "<cmd>Gitsigns stage_hunk<CR>")
+nnoremap("<leader>gd", "<cmd>Gitsigns diffthis<CR>")
+nnoremap("<leader>gu", "<cmd>Gitsigns undo_stage_hunk<CR>")
+nnoremap("<leader>gr", "<cmd>Gitsigns reset_hunk<CR>")
+nnoremap("<leader>gH", "<cmd>Gitsigns stage_buffer<CR>")
+nnoremap("<leader>gR", "<cmd>Gitsigns reset_buffer<CR>")
 
 -- Goto buffer in position...
 nnoremap("<leader>H", "<Cmd>bnext<CR>")
@@ -132,5 +146,8 @@ nnoremap("<A-8>", "<Cmd>BufferGoto 8<CR>")
 nnoremap("<A-9>", "<Cmd>BufferGoto 9<CR>")
 nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
+-- Substitute current word in line
+nnoremap("<leader>ss", ":s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
 -- Substitute word over the whole file
-nnoremap("<leader>ss", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+nnoremap("<leader>sg", ":%s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")
+

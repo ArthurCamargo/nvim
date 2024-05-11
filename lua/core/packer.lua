@@ -13,12 +13,33 @@ return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- oil
 
+    -- oil
     use {
         'stevearc/oil.nvim',
         config = function() require('oil').setup() end
     }
+
+    --jukit
+    use 'luk400/vim-jukit'
+
+    -- Tree view
+    use { 'nvim-tree/nvim-tree'}
+
+
+    -- Syntax highlight
+    use { 'sheerun/vim-polyglot' }
+
+    -- Formatter
+
+    require("packer").startup(function()
+      use({
+        "stevearc/conform.nvim",
+        config = function()
+          require("conform").setup()
+        end,
+      })
+    end)
 
     -- LSP
     use {
@@ -42,6 +63,13 @@ return require('packer').startup(function()
         }
     }
 
+
+    -- ctags
+    use("preservim/tagbar")
+
+    -- Emmet
+    use("mattn/emmet-vim")
+
     -- ultisnips
     use("quangnguyen30192/cmp-nvim-ultisnips")
 
@@ -64,7 +92,7 @@ return require('packer').startup(function()
     use("nvim-lua/plenary.nvim") -- Useful functions for nvim in lua
 
     -- Colorschemes
-    use("lunarvim/colorschemes")
+    use ("rafi/awesome-vim-colorschemes") 
     use 'folke/tokyonight.nvim'
     use("rebelot/kanagawa.nvim")
     use("NLKNguyen/papercolor-theme")

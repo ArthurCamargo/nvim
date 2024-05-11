@@ -22,6 +22,17 @@ vim.opt.splitright = true
 -- Mouse support at all modes
 vim.opt.mouse = 'a'
 
+
+--Wrapping
+vim.opt.lbr = true
+vim.opt.formatoptions="l"
+vim.opt.breakindent = true
+
+-- Trailing characters
+vim.opt.list = true
+
+
+
 -- Transparency
 
 -- Tabstops options
@@ -45,8 +56,11 @@ vim.opt.signcolumn = "yes"
 -- Scroll off, so you don't end up needing to go to the very end
 vim.opt.scrolloff = 10
 
--- Pleas do not wrap
+-- Please do wrap
 vim.opt.wrap=true
+vim.opt.textwidth=80
+
+
 
 -- Smartcase
 vim.opt.smartcase = true
@@ -59,4 +73,3 @@ vim.opt.isk:append "-"
 
 -- Create a colorcolumn to indicate that you are going to far
 vim.opt.colorcolumn = '80'
-

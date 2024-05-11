@@ -15,12 +15,22 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.cpp, *.c, Makefile"},
-  command = "map <F5> :!go run %<CR>",
+  pattern = {"*.py"},
+  command = "map <F5> :!python %<CR>",
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.tex, *.md"},
+  pattern = {"*.html, *.htm"},
+  command = "map <F5> :!firefox %<CR>",
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.html, *.htm"},
+  command = "set tabstop=2 | set shiftwidth=2",
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.tex, *.md, *.html"},
   command = "map <leader>u vipJvipgq"
 })
 

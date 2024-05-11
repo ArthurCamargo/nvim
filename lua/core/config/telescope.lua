@@ -51,7 +51,4 @@ function M.dir_university10()
     require("telescope.builtin").find_files(opts)
 end
 
-
-
-
 return M
