@@ -15,6 +15,11 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.ts, *.js, *.tsx, *.jsx"},
+  command = "set tabstop=2 | set shiftwidth=2",
+})
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.py"},
   command = "map <F5> :!python %<CR>",
 })

@@ -25,6 +25,9 @@ nnoremap("<leader>sx", "<cmd>close<CR>")
 -- Remove the highlights
 nnoremap("<leader><space>", "<Cmd>nohls<CR>")
 
+-- Trouble
+nnoremap("<leader>tb", "<cmd>TroubleToggle<CR>")
+
 -- Hold the identation in the visual mode
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
