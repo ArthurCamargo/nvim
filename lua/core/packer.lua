@@ -10,36 +10,6 @@ vim.cmd [[
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
-
-    -- oil
-    use {
-        'stevearc/oil.nvim',
-        config = function() require('oil').setup() end
-    }
-
-    --jukit
-    use 'luk400/vim-jukit'
-
-    -- Tree view
-    use { 'nvim-tree/nvim-tree'}
-
-
-    -- Syntax highlight
-    use { 'sheerun/vim-polyglot' }
-
-    -- Formatter
-
-    require("packer").startup(function()
-      use({
-        "stevearc/conform.nvim",
-        config = function()
-          require("conform").setup()
-        end,
-      })
-    end)
 
     -- LSP
     use {
@@ -63,7 +33,6 @@ return require('packer').startup(function()
         }
     }
 
-
     -- ctags
     use("preservim/tagbar")
 
@@ -72,15 +41,6 @@ return require('packer').startup(function()
 
     -- ultisnips
     use("quangnguyen30192/cmp-nvim-ultisnips")
-
-    -- Annotation 
-
-    use { "folke/neodev.nvim", opts = {} }
-
-    use {'nvim-tree/nvim-web-devicons'}
-
-
-    -- Which key
 
     -- Lua
     use ("folke/which-key.nvim")
@@ -93,7 +53,6 @@ return require('packer').startup(function()
 
     -- Colorschemes
     use ("rafi/awesome-vim-colorschemes") 
-    use 'folke/tokyonight.nvim'
     use("rebelot/kanagawa.nvim")
     use("NLKNguyen/papercolor-theme")
     use("sainnhe/everforest")
@@ -131,7 +90,6 @@ return require('packer').startup(function()
     use('nvim-telescope/telescope-dap.nvim')
 
     -- TreeSitter
-    use{'nvim-treesitter/nvim-treesitter',
     run = ":TSUpdate",
 }
 use{'p00f/nvim-ts-rainbow'}

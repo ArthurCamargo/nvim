@@ -11,22 +11,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("core.remap")
+
 require("core.options")
-require("core.abbreviations")
-require("core.packer")
-require("core.cmp")
-require("core.lsp")
-require("core.telescope")
-require("core.treesitter")
-require("core.autopairs")
-require("core.comment")
-require("core.gitsigns")
-require("core.lualine")
-require("core.nvim-tree")
-require("core.which-key")
-require("core.trouble")
-require("core.vimtex")
-require("core.autocommands")
-require("core.mason")
-require("core.tree")
+require("core.remap")
+require("core.keymap")
+
+require("lazy").setup("plugins")
