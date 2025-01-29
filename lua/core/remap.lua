@@ -5,12 +5,8 @@ local inoremap = require("core.keymap").inoremap
 -- Map the leader key
 vim.g.mapleader=(",")
 
--- Remap for Explore
-nnoremap('<leader>`', "<Cmd>NvimTreeToggle<CR>")
-
 -- Super save, save as sudo
 nnoremap("<leader>W", ":w !sudo -A tee % > /dev/null<CR>")
-
 
 -- Resize splits 
 nnoremap("<C-Down>", "<Cmd>resize -2<CR>")
@@ -18,8 +14,7 @@ nnoremap("<C-Up>", "<Cmd>resize +2<CR>")
 nnoremap("<C-Left>", "<Cmd>vertical resize +2<CR>")
 nnoremap("<C-Right>", "<Cmd>vertical resize -2<CR>")
 
-nnoremap("<leader>sv", "<Cmd>vsplit<CR>")
-nnoremap("<leader>sh", "<Cmd>split<CR>")
+nnoremap("<leader>sv", "<Cmd>vsplit<CR>") nnoremap("<leader>sh", "<Cmd>split<CR>")
 nnoremap("<leader>sx", "<cmd>close<CR>")
 
 -- Remove the highlights
@@ -46,10 +41,6 @@ vnoremap("p",'"_dP')
 
 -- Remaps for editing files
 nnoremap("<leader>n", ":e ")
-
--- Edit Snippets
-nnoremap("<leader>es", "<cmd>UltiSnipsEdit<CR>")
-
 
 -- Edit nvim lua configs
 nnoremap("<leader>evr", "<cmd>e ~/.config/nvim/lua/core/remap.lua<CR>")
@@ -81,11 +72,9 @@ nnoremap("<leader>l", "<cmd>BufferNext<CR>")
 nnoremap("<leader>bc", "<cmd>BufferCloseAllButCurrent<CR>")
 nnoremap("<leader>bp", "<cmd>BufferPick<CR>")
 
-
 -- Quitting vim
 nnoremap("<leader>qq", "<cmd>q!<CR>")
 nnoremap("<leader>qqa", "<cmd>qa!<CR>")
-
 
 -- Save file
 nnoremap("<leader>w", "<cmd>w!<CR>")
@@ -96,10 +85,10 @@ nnoremap("<C-l>", "<C-w>l")
 nnoremap("<C-j>", "<C-w><C-j>")
 nnoremap("<C-k>", "<C-w><C-k>")
 
-
-
 -- No hls
 nnoremap("<leader><space>", ":nohls<CR>")
+
+-- lspconfig
 
 -- Using Telescope functions
 nnoremap("<leader><leader>", "<cmd>lua require('telescope.builtin').find_files()<cr>")
@@ -117,17 +106,12 @@ nnoremap("<leader>fdg", "<cmd>lua require('telescope.builtin').diagnostics()<cr>
  -- Config based
 nnoremap("<leader>ffn", "<cmd>lua require('core.config.telescope').dir_nvim()<cr>")
 nnoremap("<leader>ffc", "<cmd>lua require('core.config.telescope').dir_code()<cr>")
-nnoremap("<leader>ffu", "<cmd>lua require('core.config.telescope').dir_university10()<cr>")
 
 -- Tabs
 nnoremap("<leader>to", "<cmd>tabnew<CR>")
 nnoremap("<leader>tn", "<cmd>tabnext<CR>")
 nnoremap("<leader>tp", "<cmd>tabprev<CR>")
 nnoremap("<leader>tq", "<cmd>tabclose<CR>")
-
--- Tags
-nnoremap("<leader>tt", "<cmd>Tagbar<CR>")
-
 
 -- Git
 nnoremap("<leader>gg", "<cmd>Git<CR>")
