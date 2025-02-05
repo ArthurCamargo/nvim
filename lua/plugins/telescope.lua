@@ -8,6 +8,7 @@ return {
         vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+        vim.keymap.set('n', '<leader>ft', "<cmd> Telescope thesaurus lookup", { desc = 'Telescope help tags' })
     end
     },
     {
@@ -21,6 +22,19 @@ return {
                 }
             })
         require("telescope").load_extension("ui-select")
+        end
+    },
+    {
+        "rafi/telescope-thesaurus.nvim",
+        config = function ()
+            require("telescope").setup({
+                extensions = {
+                    thesaurus = {
+                        provider='datamuse'
+                    }
+                }
+            })
+        require("telescope").load_extension("thesaurus")
         end
     }
 }

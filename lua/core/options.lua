@@ -11,7 +11,7 @@ vim.opt.autochdir = true
 vim.opt.termguicolors = true
 
 -- Complete menu and select
-vim.opt.completeopt = {'menuone', 'noselect'}
+vim.opt.completeopt = {'menuone', 'noselect', 'menu'}
 
 -- Always show tabs
 vim.opt.showtabline = 2
@@ -26,13 +26,11 @@ vim.opt.mouse = 'a'
 
 --Wrapping
 vim.opt.lbr = true
-vim.opt.formatoptions="l"
+vim.opt.formatoptions="lt"
 vim.opt.breakindent = true
 
 -- Trailing characters
 vim.opt.list = true
-
-
 
 -- Transparency
 
@@ -62,7 +60,6 @@ vim.opt.wrap=true
 vim.opt.textwidth=80
 
 
-
 -- Smartcase
 vim.opt.smartcase = true
 
@@ -74,3 +71,5 @@ vim.opt.isk:append "-"
 
 -- Create a colorcolumn to indicate that you are going to far
 vim.opt.colorcolumn = '80'
+
+

@@ -44,11 +44,10 @@ nnoremap("<leader>n", ":e ")
 
 -- Edit nvim lua configs
 nnoremap("<leader>evr", "<cmd>e ~/.config/nvim/lua/core/remap.lua<CR>")
-nnoremap("<leader>evp", "<cmd>e ~/.config/nvim/lua/core/packer.lua<CR>")
 nnoremap("<leader>evo", "<cmd>e ~/.config/nvim/lua/core/options.lua<CR>")
-nnoremap("<leader>evc", "<cmd>e ~/.config/nvim/lua/core/<CR>")
-nnoremap("<leader>ev", "<cmd>e ~/.config/nvim/init.lua<CR>")
-nnoremap("<leader>ea", "<cmd>e ~/.config/nvim/lua/core/autocommands.lua<CR>")
+nnoremap("<leader>evp", "<cmd>e ~/.config/nvim/lua/plugins/<CR>")
+nnoremap("<leader>evi", "<cmd>e ~/.config/nvim/init.lua<CR>")
+nnoremap("<leader>eva", "<cmd>e ~/.config/nvim/lua/core/autocommands.lua<CR>")
 
 -- Edit zshrc config
 nnoremap("<leader>ezs", "<cmd>e ~/.zshrc <CR>")
@@ -66,11 +65,11 @@ inoremap("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 nnoremap("<leader>sn","<cmd>set nospell<CR>")
 
 -- Buffer related commands
-nnoremap("<leader>q", "<cmd>BufferClose<CR>")
-nnoremap("<leader>h", "<cmd>BufferPrevious<CR>")
-nnoremap("<leader>l", "<cmd>BufferNext<CR>")
-nnoremap("<leader>bc", "<cmd>BufferCloseAllButCurrent<CR>")
-nnoremap("<leader>bp", "<cmd>BufferPick<CR>")
+nnoremap("<leader>h", "<cmd>BufferLineCyclePrev<CR>")
+nnoremap("<leader>l", "<cmd>BufferLineCycleNext<CR>")
+nnoremap("<leader>q", "<cmd>BufferLineClose<CR>")
+nnoremap("<leader>bc", "<cmd>BufferLineCloseOthers<CR>")
+nnoremap("<leader>bp", "<cmd>BufferLinePick<CR>")
 
 -- Quitting vim
 nnoremap("<leader>qq", "<cmd>q!<CR>")
@@ -102,10 +101,7 @@ nnoremap("<leader>ft", "<cmd>lua require('telescope.builtin').treesitter()<cr>")
 nnoremap("<leader>fo", "<cmd>lua require('telescope.builtin').oldfiles()<cr>")
 nnoremap("<leader>fm", "<cmd>lua require('telescope.builtin').man_pages()<cr>")
 nnoremap("<leader>fdg", "<cmd>lua require('telescope.builtin').diagnostics()<cr>")
-
- -- Config based
-nnoremap("<leader>ffn", "<cmd>lua require('core.config.telescope').dir_nvim()<cr>")
-nnoremap("<leader>ffc", "<cmd>lua require('core.config.telescope').dir_code()<cr>")
+nnoremap("<leader>fl", "<cmd>lua require('telescope').extensions.thesaurus.lookup()<cr>")
 
 -- Tabs
 nnoremap("<leader>to", "<cmd>tabnew<CR>")
@@ -123,17 +119,15 @@ nnoremap("<leader>gH", "<cmd>Gitsigns stage_buffer<CR>")
 nnoremap("<leader>gR", "<cmd>Gitsigns reset_buffer<CR>")
 
 -- Goto buffer in position...
-nnoremap("<leader>H", "<Cmd>bnext<CR>")
-nnoremap("<leader>L", "<Cmd>bprevious<CR>")
-nnoremap("<A-1>", "<Cmd>BufferGoto 1<CR>")
-nnoremap("<A-2>", "<Cmd>BufferGoto 2<CR>")
-nnoremap("<A-3>", "<Cmd>BufferGoto 3<CR>")
-nnoremap("<A-4>", "<Cmd>BufferGoto 4<CR>")
-nnoremap("<A-5>", "<Cmd>BufferGoto 5<CR>")
-nnoremap("<A-6>", "<Cmd>BufferGoto 6<CR>")
-nnoremap("<A-7>", "<Cmd>BufferGoto 7<CR>")
-nnoremap("<A-8>", "<Cmd>BufferGoto 8<CR>")
-nnoremap("<A-9>", "<Cmd>BufferGoto 9<CR>")
+nnoremap("<A-1>","<Cmd>BufferLineGoToBuffer 1<CR>")
+nnoremap("<A-2>", "<Cmd>BufferLineGoToBuffer 2<CR>")
+nnoremap("<A-3>", "<Cmd>BufferLineGoToBuffer 3<CR>")
+nnoremap("<A-4>", "<Cmd>BufferLineGoToBuffer 4<CR>")
+nnoremap("<A-5>", "<Cmd>BufferLineGoToBuffer 5<CR>")
+nnoremap("<A-6>", "<Cmd>BufferLineGoToBuffer 6<CR>")
+nnoremap("<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>")
+nnoremap("<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>")
+nnoremap("<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>")
 nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
 
 -- Substitute current word in line

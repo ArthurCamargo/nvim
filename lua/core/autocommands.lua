@@ -6,16 +6,13 @@ local nmap = require("core.keymap").nmap
 local imap = require("core.keymap").imap
 local smap = require("core.keymap").smap
 
-
-
-
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.go"},
   command = "map <F5> :!go run %<CR>",
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.ts, *.js, *.tsx, *.jsx"},
+  pattern = {"*.ts, *.js, *.tsx, *.jsx, *.html, *.htm"},
   command = "set tabstop=2 | set shiftwidth=2",
 })
 
@@ -30,22 +27,6 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 })
 
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.html, *.htm"},
-  command = "set tabstop=2 | set shiftwidth=2",
-})
-
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
   pattern = {"*.tex, *.md, *.html"},
-  command = "map <leader>u vipJvipgq"
+  command = "map <leader>u vipJvipgq | set spell"
 })
-
-vim.api.nvim_create_autocmd({"BufWritePost"}, {
-    pattern = {"*.snippets"},
-    command = "CmpUltisnipsReloadSnippets"
-})
-
-
--- vim.api.nvim_create_autocmd({"WinNew"}, {
-    --pattern = {"*"},
-    --command = "wincmd L"
---})

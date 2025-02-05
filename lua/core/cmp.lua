@@ -3,11 +3,6 @@ if not cmp_status_ok then
   return
 end
 
-local snip_status_ok, ulti = pcall(require, "cmp_nvim_ultisnips.mappings")
-if not snip_status_ok then
-  return
-end
-
 local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
@@ -107,7 +102,6 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "ultisnips" },
     { name = "nvim_lua"},
     { name = "spell"},
     { name = "nvim_lsp"},
