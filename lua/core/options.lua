@@ -23,7 +23,6 @@ vim.opt.splitbelow = true
 -- Mouse support at all modes
 vim.opt.mouse = 'a'
 
-
 --Wrapping
 vim.opt.lbr = true
 vim.opt.formatoptions="lt"
@@ -31,8 +30,6 @@ vim.opt.breakindent = true
 
 -- Trailing characters
 vim.opt.list = true
-
--- Transparency
 
 -- Tabstops options
 vim.opt.tabstop=4
@@ -58,7 +55,6 @@ vim.opt.scrolloff = 10
 -- Please do wrap
 vim.opt.wrap=true
 vim.opt.textwidth=80
-
 
 -- Smartcase
 vim.opt.smartcase = true
