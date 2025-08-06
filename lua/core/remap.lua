@@ -55,28 +55,24 @@ nnoremap("<leader>ezs", "<cmd>e ~/.zshrc <CR>")
 -- Cheat 
 nnoremap("<leader>c", "<cmd>CheatList<CR>")
 
--- Harpoon
-nnoremap("<leader>qm", "<cmd>:lua require('harpoon.ui').toggle_quick_menu()<CR>")
-nnoremap("<leader>m", "<cmd>:lua require('harpoon.mark').add_file()<CR>")
-
 -- Spelling
 nnoremap("<leader>sp", "<cmd>set spell spelllang=en_us<CR>")
 inoremap("<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u")
 nnoremap("<leader>sn","<cmd>set nospell<CR>")
 
 -- Buffer related commands
-nnoremap("<leader>h", "<cmd>BufferLineCyclePrev<CR>")
-nnoremap("<leader>l", "<cmd>BufferLineCycleNext<CR>")
-nnoremap("<leader>q", "<cmd>BufferLineClose<CR>")
+nnoremap("<leader>h", "<cmd>bprevious!<CR>")
+nnoremap("<leader>l", "<cmd>bnext!<CR>")
+nnoremap("<leader>q", "<cmd>bdelete!<CR>")
 nnoremap("<leader>bc", "<cmd>BufferLineCloseOthers<CR>")
 nnoremap("<leader>bp", "<cmd>BufferLinePick<CR>")
 
 -- Quitting vim
-nnoremap("<leader>qq", "<cmd>q!<CR>")
-nnoremap("<leader>qqa", "<cmd>qa!<CR>")
+nnoremap("<leader>x", "<cmd>x!<CR>")
 
 -- Save file
 nnoremap("<leader>w", "<cmd>w!<CR>")
+nnoremap("<C-s>", "<cmd>w!<CR>")
 
 -- Moving from splits
 nnoremap("<C-h>", "<C-w>h")
@@ -129,6 +125,9 @@ nnoremap("<A-7>", "<Cmd>BufferLineGoToBuffer 7<CR>")
 nnoremap("<A-8>", "<Cmd>BufferLineGoToBuffer 8<CR>")
 nnoremap("<A-9>", "<Cmd>BufferLineGoToBuffer 9<CR>")
 nnoremap("<A-0>", "<Cmd>BufferLast<CR>")
+
+-- Inserting date
+inoremap("<c-a-t>", "<Cmd>put =strftime('%Y-%m-%d %H:%M')<CR>")
 
 -- Substitute current word in line
 nnoremap("<leader>ss", ":s/\\<<C-r><C-w>\\>//gI<Left><Left><Left>")

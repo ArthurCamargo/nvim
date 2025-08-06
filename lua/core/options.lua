@@ -66,10 +66,10 @@ vim.opt.smartcase = true
 -- Convert tabs to spaces
 vim.opt.expandtab = true
 
--- Include somecharacters to be part of a word 'a-b' is now a whole word
+-- Include some characters to be part of a word 'a-b' and `a_b` is now a whole word
 vim.opt.isk:append "-"
+vim.opt.isk:append "_"
 
 -- Create a colorcolumn to indicate that you are going to far
 vim.opt.colorcolumn = '80'
-
-
+vim.opt.background="dark"
